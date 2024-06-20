@@ -57,7 +57,7 @@ public class ResultService {
         if (existingResultOptional.isPresent()) {
             // If result exists, update the rest of the properties
             Result existingResult = existingResultOptional.get();
-            existingResult.setDate(updatedResult.getDate());
+            existingResult.setResultDate(updatedResult.getResultDate());
             existingResult.setResultType(updatedResult.getResultType());
             existingResult.setResultValue(updatedResult.getResultValue());
             existingResult.setAthlete(updatedResult.getAthlete());

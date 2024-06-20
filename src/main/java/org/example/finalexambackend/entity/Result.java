@@ -16,15 +16,15 @@ public class Result {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String resultType;
-    private LocalDate date;
+    private LocalDate resultDate;
     private String resultValue;
 
     @ManyToOne
-    @JoinColumn(name = "athlete_id")
+    @JoinColumn(name = "athlete_id_fk")
     private Athlete athlete;
 
     @ManyToOne
-    @JoinColumn(name = "discipline_id")
+    @JoinColumn(name = "discipline_id_fk")
     private Discipline discipline;
 
 }

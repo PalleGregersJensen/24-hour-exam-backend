@@ -15,7 +15,7 @@ import java.time.LocalDate;
 public class ResultDto {
     private int id;
     private String resultType;
-    private LocalDate date;
+    private LocalDate resultDate;
     private String resultValue;
     private Athlete athlete;
     private Discipline discipline;
@@ -23,7 +23,7 @@ public class ResultDto {
     public ResultDto(Result r) {
         this.id = r.getId();
         this.resultType = r.getResultType();
-        this.date = r.getDate();
+        this.resultDate = r.getResultDate();
         this.resultValue = r.getResultValue();
         this.athlete = r.getAthlete();
         this.discipline = r.getDiscipline();

@@ -1,11 +1,9 @@
 package org.example.finalexambackend.controller;
 
-import org.example.finalexambackend.dto.AthleteDto;
 import org.example.finalexambackend.dto.DisciplineDto;
-import org.example.finalexambackend.entity.Athlete;
 import org.example.finalexambackend.entity.Discipline;
-import org.example.finalexambackend.repository.DisciplineRepository;
 import org.example.finalexambackend.service.DisciplineService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,6 +12,7 @@ import java.util.List;
 @RequestMapping("/disciplines")
 public class DisciplineController {
 
+    @Autowired
     DisciplineService disciplineService;
 
     //Get all disciplines

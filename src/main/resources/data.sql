@@ -17,3 +17,6 @@ INSERT INTO discipline (name, result_type) VALUES ('800 m', 'tid');
 
 -- ///////////////////// RESULTS //////////////////////
 INSERT INTO result (result_date, result_type, result_value, athlete_id_fk, discipline_id_fk) VALUES (NOW(), 'tid', '10.55', 1, 1);
+
+-- ///////////////////// ATHLETE-DISCIPLINE ///////////////////////////
+INSERT INTO athlete_discipline(athlete_id, discipline_id) VALUES (1, 1);

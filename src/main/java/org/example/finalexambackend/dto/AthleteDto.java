@@ -20,7 +20,7 @@ public class AthleteDto {
     private boolean gender;
     private int age;
     private String club;
-    private Set<Discipline> discipline;
+    //private Set<Discipline> discipline;
 
     public AthleteDto(Athlete a) {
         this.id = a.getId();
@@ -29,7 +29,7 @@ public class AthleteDto {
         this.gender = a.isGender();
         this.age = calculateAge(a.getBirthdate());
         this.club = a.getClub();
-        this.discipline =a.getDisciplines();
+        //this.discipline =a.getDisciplines();
     }
 
     private int calculateAge(LocalDate birthdate) {

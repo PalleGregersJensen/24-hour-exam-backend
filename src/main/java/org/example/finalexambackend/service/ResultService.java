@@ -1,8 +1,10 @@
 package org.example.finalexambackend.service;
 
 import org.example.finalexambackend.dto.AthleteDto;
+import org.example.finalexambackend.dto.ResultDto;
 import org.example.finalexambackend.entity.Athlete;
-import org.example.finalexambackend.repository.AthleteRepository;
+import org.example.finalexambackend.entity.Result;
+import org.example.finalexambackend.repository.ResultRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -16,58 +18,58 @@ import java.util.Optional;
 public class ResultService {
 
     @Autowired
-    AthleteRepository athleteRepository;
+    ResultRepository resultRepository;
 
-    //Get all athletes
-    public List<AthleteDto> getAllAthletes() {
-        List<Athlete> athleteList = athleteRepository.findAll();
-        List<AthleteDto> athleteDtoList = new ArrayList<>();
+    //Get all results
+    public List<ResultDto> getAllResults() {
+        List<Result> resultList = resultRepository.findAll();
+        List<ResultDto> resultDtoList = new ArrayList<>();
 
-        for (Athlete athlete : athleteList) {
-            athleteDtoList.add(new AthleteDto(athlete));
+        for (Result result : resultList) {
+            resultDtoList.add(new ResultDto(result));
         }
 
-        return athleteDtoList;
+        return resultDtoList;
     }
 
-    //Get athlete by id
-    public AthleteDto getAthleteById(int id) {
-        Athlete athlete = athleteRepository.findById(id).orElseThrow(() ->
-                new ResponseStatusException(HttpStatus.NOT_FOUND, "color not found"));
-        return new AthleteDto(athlete);
+    //Get result by id
+    public ResultDto getResultById(int id) {
+        Result result = resultRepository.findById(id).orElseThrow(() ->
+                new ResponseStatusException(HttpStatus.NOT_FOUND, "Result not found"));
+        return new ResultDto(result);
     }
 
-    //Create athlete
-    public Athlete createAthlete(Athlete athlete) {
-        return athleteRepository.save(athlete);
+    //Create result
+    public Result createResult(Result result) {
+        return resultRepository.save(result);
     }
 
-    //Delete athlete
-    public void deleteAthlete(int id) {
-        athleteRepository.deleteById(id);
+    //Delete result
+    public void deleteResult(int id) {
+        resultRepository.deleteById(id);
     }
 
-    //Update athlete
-    public Athlete updateAthlete(int id, Athlete updatedAthlete) {
+    //Update result
+    public Result updateResult(int id, Result updatedResult) {
 
-        Optional<Athlete> existingAthleteOptional = athleteRepository.findById(id);
-        // Check if athlete with that ID exists in database
-        if (existingAthleteOptional.isPresent()) {
-            // If athlete exists, update the rest of the properties
-            Athlete existingAthlete = existingAthleteOptional.get();
-            existingAthlete.setName(updatedAthlete.getName());
-            existingAthlete.setGender(updatedAthlete.isGender());
-            existingAthlete.setBirthdate(updatedAthlete.getBirthdate());
-            existingAthlete.setClub(updatedAthlete.getClub());
-            existingAthlete.setDisciplines(updatedAthlete.getDisciplines());
-            existingAthlete.setResults(updatedAthlete.getResults());
+        Optional<Result> existingResultOptional = resultRepository.findById(id);
+        // Check if result with that ID exists in database
+        if (existingResultOptional.isPresent()) {
+            // If result exists, update the rest of the properties
+            Result existingResult = existingResultOptional.get();
+            existingResult.setDate(updatedResult.getDate());
+            existingResult.setResultType(updatedResult.getResultType());
+            existingResult.setResultValue(updatedResult.getResultValue());
+            existingResult.setAthlete(updatedResult.getAthlete());
+            existingResult.setDiscipline(updatedResult.getDiscipline());
 
-            // Save updated athlete in database
-            return athleteRepository.save(existingAthlete);
+            // Save updated result in database
+            return resultRepository.save(existingResult);
         } else {
-            // If athlete does not exist in database, throw error
-            throw new RuntimeException("Athlete with ID: " + id + " not found");
+            // If result does not exist in database, throw error
+            throw new RuntimeException("Result with ID: " + id + " not found");
         }
 
-
     }
+
+}

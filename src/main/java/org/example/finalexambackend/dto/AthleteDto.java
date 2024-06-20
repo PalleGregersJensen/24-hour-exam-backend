@@ -19,7 +19,8 @@ import java.util.Set;
 @NoArgsConstructor
 public class AthleteDto {
     private int id;
-    private String name;
+    private String firstname;
+    private String lastname;
     private boolean gender;
     private LocalDate birthdate;
     private String club;
@@ -28,7 +29,8 @@ public class AthleteDto {
 
     public AthleteDto (Athlete a) {
         this.id = a.getId();
-        this.name = a.getName();
+        this.firstname = a.getFirstname();
+        this.lastname = a.getLastname();
         this.gender = a.isGender();
         this.birthdate = a.getBirthdate();
         this.club = a.getClub();

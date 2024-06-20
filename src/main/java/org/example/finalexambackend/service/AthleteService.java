@@ -55,7 +55,8 @@ public class AthleteService {
         if (existingAthleteOptional.isPresent()) {
             // If athlete exists, update the rest of the properties
             Athlete existingAthlete = existingAthleteOptional.get();
-            existingAthlete.setName(updatedAthlete.getName());
+            existingAthlete.setFirstname(updatedAthlete.getFirstname());
+            existingAthlete.setLastname(updatedAthlete.getLastname());
             existingAthlete.setGender(updatedAthlete.isGender());
             existingAthlete.setBirthdate(updatedAthlete.getBirthdate());
             existingAthlete.setClub(updatedAthlete.getClub());

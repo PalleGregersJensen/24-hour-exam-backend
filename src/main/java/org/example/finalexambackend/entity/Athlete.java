@@ -16,7 +16,8 @@ public class Athlete {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String name;
+    private String firstname;
+    private String lastname;
     private boolean gender;
     private LocalDate birthdate;
     private String club;

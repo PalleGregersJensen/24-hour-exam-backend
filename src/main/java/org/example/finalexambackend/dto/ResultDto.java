@@ -17,16 +17,22 @@ public class ResultDto {
     private String resultType;
     private LocalDate resultDate;
     private String resultValue;
-    private Athlete athlete;
-    private Discipline discipline;
+    private int athleteId;
+    private String athleteFirstname;
+    private String athleteLastName;
+    private int disciplineId;
+    private String disciplineName;
 
     public ResultDto(Result r) {
         this.id = r.getId();
         this.resultType = r.getResultType();
         this.resultDate = r.getResultDate();
         this.resultValue = r.getResultValue();
-        this.athlete = r.getAthlete();
-        this.discipline = r.getDiscipline();
+        this.athleteId = r.getAthlete().getId();
+        this.athleteFirstname = r.getAthlete().getFirstname();
+        this.athleteLastName = r.getAthlete().getLastname();
+        this.disciplineId = r.getAthlete().getId();
+        this.disciplineName = r.getDiscipline().getName();
     }
 
 }

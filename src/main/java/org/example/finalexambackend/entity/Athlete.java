@@ -1,5 +1,6 @@
 package org.example.finalexambackend.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,7 @@ public class Athlete {
     private String club;
 
     @ManyToMany
+    @JsonBackReference
     @JoinTable(
             name = "athlete_discipline",
             joinColumns = @JoinColumn(name = "athlete_id"),
